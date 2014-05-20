@@ -15,3 +15,4 @@ movies = [toy_story,avatar,thupakki]
 
 #fresh_tomatoes.open_movies_page(movies)
 print(media.Movie.__doc__)
+print(media.Movie.__name__)
