@@ -1,7 +1,7 @@
 import urllib
 
 def read_test():
-	file = open("/home/prasanna/Quotes.txt")
+	file = open("/home/prasanna/github/PythonLearning/Quotes.txt")
 	contents = file.read()
 	file.close()
 	check_file(contents)
