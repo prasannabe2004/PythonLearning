@@ -7,6 +7,7 @@ import urllib
 ## that's the GET request
 res = urllib2.urlopen('http://httpbin.org/ip')
 
+print "The output of HTTP GET Request"
 print res.read()
 
 ## post requests contain data, so here's how to make a POST request
@@ -25,5 +26,6 @@ req = urllib2.Request('http://httpbin.org/post',data)
 res = urllib2.urlopen(req)
 
 ## print output
+print "The output of HTTP POST Request"
 print res.read()
 
