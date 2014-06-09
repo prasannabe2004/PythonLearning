@@ -1,3 +1,6 @@
+
+#apt-get install python-tk
+
 import turtle               # allows us to use the turtles library
 
 
