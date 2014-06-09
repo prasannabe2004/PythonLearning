@@ -13,6 +13,6 @@ thupakki = media.Movie("Thuppaki", "The story revolves around an Indian army int
 
 movies = [toy_story,avatar,thupakki]
 
-#fresh_tomatoes.open_movies_page(movies)
-print(media.Movie.__doc__)
-print(media.Movie.__name__)
+fresh_tomatoes.open_movies_page(movies)
+#print(media.Movie.__doc__)
+#print(media.Movie.__name__)
