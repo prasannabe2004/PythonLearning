@@ -52,6 +52,8 @@ len()
 from os.path omport exists
 exists()
 
+help(module_name)
+
 """
 
 
