@@ -10,6 +10,7 @@ False
 if:
 else:
 print
+for 
 
 Symbols:
 +
@@ -48,6 +49,9 @@ seek
 
 from sys import argv
 len()
+range()
+append()
+
 
 from os.path omport exists
 exists()
