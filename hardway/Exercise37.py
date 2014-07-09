@@ -37,6 +37,15 @@ def test_while_keyword():
 		i = i+1
 	print "'while' keyword tested successfully"	
 
+def test_if_elif_else_keywords():
+	input = raw_input("Are you a Python Programmer: ")
+	if (input == "Yes" or input == "yes" or input == "Y" or input == "y"):
+		print "I like you"
+	elif (input == "No" or input == "no" or input == "N" or input == "n"):
+		print "Why are you here"
+	else:
+		print "Invalid input"
+		
 def start():
 	test_and_keyword()
 	test_del_keyword()
@@ -44,5 +53,6 @@ def start():
 	test_from_keyword()
 	test_not_keyword()		
 	test_while_keyword()
+	test_if_elif_else_keywords()
 
 start()
