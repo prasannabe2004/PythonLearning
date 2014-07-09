@@ -1,5 +1,9 @@
 #Python 2.7.0
 
+def test_not_keyword():
+	x = True
+	print "'not' keyword tested successfully" , not x
+	
 def test_and_keyword():
 	x = True
 	y = False
@@ -32,6 +36,6 @@ def start():
 	test_import_keyword()
 	print
 	test_from_keyword()
-		
+	test_not_keyword()		
 
 start()
