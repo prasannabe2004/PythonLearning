@@ -14,9 +14,17 @@ def test_del_keyword():
 	del a[2:4]
 	print "'del' keyword tested successfully", a
 
+def test_import_keyword():
+	import myfunctions
+	myfunctions.testfunction()
+	print "'import' keyword tested successfully"
+
 def start():
 	test_and_keyword()
 	print
 	test_del_keyword()
+	print
+	test_import_keyword()
+	
 
 start()

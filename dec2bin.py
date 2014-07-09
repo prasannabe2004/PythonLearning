@@ -1,4 +1,5 @@
 #!/usr/bin/python
+#Python 2.7.0
 
 def binary(n):
    """Function to print binary number
