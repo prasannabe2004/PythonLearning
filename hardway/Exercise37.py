@@ -19,12 +19,19 @@ def test_import_keyword():
 	myfunctions.testfunction()
 	print "'import' keyword tested successfully"
 
+def test_from_keyword():
+	from myfunctions import *
+	testfunction()
+	print "'from' keyword tested successfully"
+
 def start():
 	test_and_keyword()
 	print
 	test_del_keyword()
 	print
 	test_import_keyword()
-	
+	print
+	test_from_keyword()
+		
 
 start()

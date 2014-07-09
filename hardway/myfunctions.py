@@ -1,3 +1,3 @@
 def testfunction():
-	print "This is a test fucntion"
+	print "This is a test function"
 
