@@ -1,8 +1,6 @@
 #Python 2.7.0
 
-def test_not_keyword():
-	x = True
-	print "'not' keyword tested successfully" , not x
+from myfunctions2 import *
 	
 def test_and_keyword():
 	x = True
@@ -24,18 +22,27 @@ def test_import_keyword():
 	print "'import' keyword tested successfully"
 
 def test_from_keyword():
-	from myfunctions import *
-	testfunction()
+	
+	testfunction2()
 	print "'from' keyword tested successfully"
+
+def test_not_keyword():
+	x = True
+	print "'not' keyword tested successfully" , not x
+
+def test_while_keyword():
+	i = 1;
+	while(i<=2):
+		print i,
+		i = i+1
+	print "'while' keyword tested successfully"	
 
 def start():
 	test_and_keyword()
-	print
 	test_del_keyword()
-	print
 	test_import_keyword()
-	print
 	test_from_keyword()
 	test_not_keyword()		
+	test_while_keyword()
 
 start()
