@@ -45,6 +45,10 @@ def test_if_elif_else_keywords():
 	else:
 		print "Invalid input"
 
+def test_global_keyword():
+	global value
+	value = 1000
+
 def start():
 	"""
 	Test the documentation
@@ -56,5 +60,7 @@ def start():
 	test_not_keyword()		
 	test_while_keyword()
 	test_if_elif_else_keywords()
-
+	test_global_keyword()
+	print value
+	
 start()
