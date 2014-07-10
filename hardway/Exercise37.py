@@ -1,7 +1,7 @@
 #Python 2.7.0
 
 from myfunctions2 import *
-	
+
 def test_and_keyword():
 	x = True
 	y = False
@@ -22,7 +22,6 @@ def test_import_keyword():
 	print "'import' keyword tested successfully"
 
 def test_from_keyword():
-	
 	testfunction2()
 	print "'from' keyword tested successfully"
 
@@ -45,7 +44,7 @@ def test_if_elif_else_keywords():
 		print "Why are you here"
 	else:
 		print "Invalid input"
-		
+
 def start():
 	test_and_keyword()
 	test_del_keyword()
