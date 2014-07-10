@@ -46,6 +46,9 @@ def test_if_elif_else_keywords():
 		print "Invalid input"
 
 def start():
+	"""
+	Test the documentation
+	"""
 	test_and_keyword()
 	test_del_keyword()
 	test_import_keyword()
