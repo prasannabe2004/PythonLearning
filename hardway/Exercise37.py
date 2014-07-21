@@ -1,3 +1,4 @@
+#!/usr/bin/python
 #Python 2.7.0
 
 from myfunctions2 import *
@@ -37,10 +38,10 @@ def test_while_keyword():
 	print "'while' keyword tested successfully"	
 
 def test_if_elif_else_keywords():
-	input = raw_input("Are you a Python Programmer: ")
-	if (input == "Yes" or input == "yes" or input == "Y" or input == "y"):
+	user_input = raw_input("Are you a Python Programmer: ")
+	if (user_input == "Yes" or user_input == "yes" or user_input == "Y" or user_input == "y"):
 		print "I like you"
-	elif (input == "No" or input == "no" or input == "N" or input == "n"):
+	elif (user_input == "No" or user_input == "no" or user_input == "N" or user_input == "n"):
 		print "Why are you here"
 	else:
 		print "Invalid input"

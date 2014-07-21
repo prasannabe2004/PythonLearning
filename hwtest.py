@@ -1,14 +1,10 @@
-# -*- coding: utf-8 -*-			# recomended but doesn't fully work
-import sys
-reload(sys)				# not entirely a good practice to make 
-sys.setdefaultencoding("utf-8")		# this work without an exception
-import subprocess
-import os
+#!/usr/bin/python
+#Python 2.7.0
+
 from threading import Thread
 import threading
 import Queue
 import time
-import re
 
 # Master list of all HW tests
 test_list= sorted(["Worker1", "Worker2", "Worker3", "Worker4", "Worker5", "Worker6", "Worker7", "Worker8"], key=lambda s: s.upper())
@@ -32,6 +28,7 @@ def Worker1_thread(arg):
 		else:
 			q.put(["Worker1", "Fail"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker1", "Not available"])
 def start_Worker1_test(arg):
 	the_name= "Worker1"
@@ -47,6 +44,7 @@ def Worker2_thread(arg):
 		time.sleep(2)
 		q.put(["Worker2", "Not implemented"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker2", "Not available"])
 def start_Worker2_test(arg):
 	the_name= "Worker2 " + str(arg)
@@ -65,6 +63,7 @@ def Worker3_thread(arg):
 		else:	
 			q.put(["Worker3", "Fail"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker3", "Not available"])
 def start_Worker3_test(arg):
 	the_name= "Worker3 " + str(arg)
@@ -80,6 +79,7 @@ def Worker4_thread(arg):
 		time.sleep(4)
 		q.put(["Worker4", "Not implemented"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker4", "Not available"])
 def start_Worker4_test(arg):
 	the_name= "Worker4 " + str(arg)
@@ -95,6 +95,7 @@ def Worker5_thread(arg):
 		time.sleep(5)
 		q.put(["Worker5", "Not implemented"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker5", "Error"])
 def start_Worker5_test(arg):
 	the_name= "Worker5 " + str(arg)
@@ -112,6 +113,7 @@ def Worker6_thread(arg):
 		else:
 			q.put(["Worker6", "Fail"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker6_drive", "Not available"])
 
 def start_Worker6_test(arg):
@@ -131,6 +133,7 @@ def Worker7_thread(arg):
 		else:
 			q.put(["Worker7", "Fail"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker7", "Not available"])
 def start_Worker7_test(arg):
 	the_name= "Worker7"
@@ -148,6 +151,7 @@ def Worker8_Thread(arg):
 		else:
 			q.put(["Worker8", "Fail"])
 	except OSError as e:
+		print "I/O error({0}): {1}".format(e.errno, e.strerror)
 		q.put(["Worker8", "Not available"])
 
 def start_Worker8_test(arg):
@@ -209,7 +213,7 @@ def read_q():
 def run_tests(tests):
 	run_hw_tests(tests)
 	# Wait for all threads to complete
-	timeout= 30				# wait up to 30 seconds
+	# timeout= 30				# wait up to 30 seconds
 	while threading.activeCount() > 1 :	# wait for all threads (except main) to complete
 		#time.sleep(0.100)	# sleep 100 ms
 		#timeout = timeout - 0.100
