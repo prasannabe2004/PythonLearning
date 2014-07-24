@@ -1,7 +1,4 @@
 #!/usr/bin/python
-
-import turtle
-import odbchelper
 import logging
 
 def info(myobject, spacing=10, collapse=1, methodtype=1):
