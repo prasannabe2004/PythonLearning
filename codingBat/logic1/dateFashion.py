@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def date_fashion(you, date):
 	if you <= 2 or date <= 2:
 		result = 0

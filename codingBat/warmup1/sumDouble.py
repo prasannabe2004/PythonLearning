@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def sumDouble(a, b):
 	if a != b:
 		return a+b

@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def frontArray(array):
 	n = len(array)
 	for i in range(n-1):

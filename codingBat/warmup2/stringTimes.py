@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def stringTimes(name, n):
 	result = ''
 	for i in range(0,n):

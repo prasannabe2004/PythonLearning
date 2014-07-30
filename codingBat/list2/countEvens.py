@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def count_evens(nums):
 	j = 0
 	n = len(nums)

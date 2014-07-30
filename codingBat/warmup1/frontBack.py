@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def frontBack(name):
 	n = len(name)
 	if n <= 1:

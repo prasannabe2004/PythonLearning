@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def love6(a, b):
 	diff = abs(a -b)
 	add = a+b

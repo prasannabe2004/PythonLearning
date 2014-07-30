@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def posNeg(a, b, c):
 	if c :
 		if a < 0 and b < 0:

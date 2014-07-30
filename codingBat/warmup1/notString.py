@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def notString(name):
 	print (name[:3])
 	if name[:3] != 'not':

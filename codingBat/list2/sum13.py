@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def sum13(nums):
 	j = 0
 	flag = 0

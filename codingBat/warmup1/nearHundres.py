@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def diff21(n):
 	diff1 = abs(100 - n) 
 	diff2 = abs(200 - n)

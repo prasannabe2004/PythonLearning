@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def stringSpolision(name):
 	n = len(name)
 	result = ''

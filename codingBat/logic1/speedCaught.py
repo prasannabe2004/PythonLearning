@@ -1,8 +1,6 @@
 # Assignments from http://codingbat.com/
 # Warmup1
 
-import math
-
 def speed(limit, birthday):
 	if (birthday and limit <= 60+5) or (limit <= 60):
 		result = 0
