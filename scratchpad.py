@@ -1,18 +1,25 @@
 def genPrimes():
-    yield 1
-    yield 2
+    n = 2
+    primes = []
+    while True:
+        for p in primes:
+            if n % p == 0:
+                break
+        else:
+            primes.append(n)
+            yield n
+        n += 1
 
+test = genPrimes()
 
-def prime(n):
-    a = n
-    for i in range(a,n):
-        if n%i == 0:
-            return False
-        a-=1
-    if i == n:
-        return True
+print test.next()
+print test.next()
+print test.next()
+print test.next()
+print test.next()
+print test.next()
+print test.next()
 
-print prime(3)
 
 
 
