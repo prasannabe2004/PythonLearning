@@ -1,25 +1,8 @@
-def genPrimes():
-    n = 2
-    primes = []
-    while True:
-        for p in primes:
-            if n % p == 0:
-                break
-        else:
-            primes.append(n)
-            yield n
-        n += 1
+import re
 
-test = genPrimes()
+str = 'Hello, world!'
 
-print test.next()
-print test.next()
-print test.next()
-print test.next()
-print test.next()
-print test.next()
-print test.next()
+list = str.split()
 
-
-
+print re.split(',|!|''',str)
 
