@@ -68,14 +68,14 @@ class SummaryTrigger(WordTrigger):
         return self.isWordIn(story.getSummary())
 
 
-class NotTrigger():
+class NotTrigger(Trigger):
     def __init__(self, t1):
         self.t1 = t1
 
     def evaluate(self, story):
         return not self.t1.evaluate(story)
 
-class AndTrigger():
+class AndTrigger(Trigger):
     def __init__(self, t1, t2):
         self.t1 = t1
         self.t2 = t2
@@ -83,7 +83,7 @@ class AndTrigger():
     def evaluate(self, story):
         return self.t1.evaluate(story) and self.t2.evaluate(story)
 
-class OrTrigger():
+class OrTrigger(Trigger):
     def __init__(self, t1, t2):
         self.t1 = t1
         self.t2 = t2
@@ -99,12 +99,33 @@ pillow = NewsStory('', '', 'I prefer pillows that are soft.', '', '')
 s2 = SubjectTrigger('soft')
 print s2.evaluate(pillow)
 soda = NewsStory('', '', '', 'Soft drinks are great', '')
-s2 = SummaryTrigger('soft')
-print s2.evaluate(soda)
+s3 = SummaryTrigger('soft')
+print s3.evaluate(soda)
 
-n = NotTrigger(s1)
-b = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
-print n.evaluate(b)
+# Not Trigger
+koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
+s4 = TitleTrigger('bear')
+n = NotTrigger(s4)
+print n.evaluate(koala)
 
+#And Trigger
+koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
+s5 = TitleTrigger('bear')
+pillow = NewsStory('', '', 'I prefer pillows that are soft.', '', '')
+s6 = SubjectTrigger('soft')
 
+result = AndTrigger(s5,s6)
 
+soda = NewsStory('', "Koala bear's are soft and cuddly", 'I prefer pillows that are soft.', '', '')
+print result.evaluate(soda)
+
+#Or Trigger
+koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
+s5 = TitleTrigger('bear')
+pillow = NewsStory('', '', 'I prefer pillows that are soft.', '', '')
+s6 = SubjectTrigger('soft')
+
+result = OrTrigger(s5,s6)
+
+soda = NewsStory('', "Koala bear's are soft and cuddly", 'I prefer pillows that are soft.', '', '')
+print result.evaluate(soda)
