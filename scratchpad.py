@@ -52,22 +52,56 @@ class WordTrigger(Trigger):
         else:
             return False
 
+
 class TitleTrigger(WordTrigger):
     def evaluate(self, story):
         return self.isWordIn(story.getTitle())
+
 
 class SubjectTrigger(WordTrigger):
     def evaluate(self, story):
         return self.isWordIn(story.getSubject())
 
+
 class SummaryTrigger(WordTrigger):
     def evaluate(self, story):
         return self.isWordIn(story.getSummary())
 
+
+class NotTrigger():
+    def __init__(self, t1):
+        self.t1 = t1
+
+    def evaluate(self, story):
+        return self.t1.evaluate(story)
+
+class AndTrigger():
+    def __init__(self, t1, t2):
+        self.t1 = t1
+        self.t2 = t2
+
+    def evaluate(self, story):
+        return self.t1.evaluate(story) and self.t2.evaluate(story)
+
+class OrTrigger():
+    def __init__(self, t1, t2):
+        self.t1 = t1
+        self.t2 = t2
+
+    def evaluate(self, story):
+        return self.t1.evaluate(story) or self.t2.evaluate(story)
+
+
 koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
 s1 = TitleTrigger('bear')
-s2 = TitleTrigger('soft')
 print s1.evaluate(koala)
+pillow = NewsStory('', '', 'I prefer pillows that are soft.', '', '')
+s2 = SubjectTrigger('soft')
+print s2.evaluate(pillow)
+soda = NewsStory('', '', '', 'Soft drinks are great', '')
+s2 = SummaryTrigger('soft')
+print s2.evaluate(soda)
+
 
 
 
