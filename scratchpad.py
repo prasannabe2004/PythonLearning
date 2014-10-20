@@ -91,7 +91,7 @@ class OrTrigger(Trigger):
     def evaluate(self, story):
         return self.t1.evaluate(story) or self.t2.evaluate(story)
 
-class PhraseTrigger(WordTrigger):
+class PhraseTrigger(Trigger):
     def __init__(self,phrase):
         self.phrase = phrase
 
@@ -102,6 +102,7 @@ class PhraseTrigger(WordTrigger):
             return True
         if self.phrase in story.getSummary():
             return True
+        return False
 
 
 koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
