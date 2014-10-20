@@ -73,7 +73,7 @@ class NotTrigger():
         self.t1 = t1
 
     def evaluate(self, story):
-        return self.t1.evaluate(story)
+        return not self.t1.evaluate(story)
 
 class AndTrigger():
     def __init__(self, t1, t2):
@@ -102,6 +102,9 @@ soda = NewsStory('', '', '', 'Soft drinks are great', '')
 s2 = SummaryTrigger('soft')
 print s2.evaluate(soda)
 
+n = NotTrigger(s1)
+b = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
+print n.evaluate(b)
 
 
 
