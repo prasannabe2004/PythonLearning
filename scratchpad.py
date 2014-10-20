@@ -104,6 +104,15 @@ class PhraseTrigger(Trigger):
             return True
         return False
 
+def filterStories(stories, triggerlist):
+    list = []
+    for story in stories:
+        for trigger in triggerlist:
+            if trigger.evaluate(story):
+                list.append(story)
+                break
+    return list
+
 
 koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
 s1 = TitleTrigger('bear')
@@ -151,8 +160,21 @@ c = NewsStory('', '', '', "asdfasfdNew York Cityasfdasdfasdf", '')
 noa = NewsStory('', "something something new york city", '', '', '')
 nob = NewsStory('', '', "something something new york city", '', '')
 noc = NewsStory('', '', '', "something something new york city", '')
-
 pt.evaluate(a)
 pt.evaluate(b)
 pt.evaluate(c)
 
+#Filter Stories
+pt = PhraseTrigger("New York City")
+a = NewsStory('', "asfdNew York Cityasfdasdfasdf", '', '', '')
+b = NewsStory('', '', "asdfasfdNew York Cityasfdasdfasdf", '', '')
+c = NewsStory('', '', '', "asdfasfdNew York Cityasfdasdfasdf", '')
+noa = NewsStory('', "something something new york city", '', '', '')
+nob = NewsStory('', '', "something something new york city", '', '')
+noc = NewsStory('', '', '', "something something new york city", '')
+
+stories = [a, b, c, noa, nob, noc]
+triggers = [pt, s1, s2]
+filteredStories = filterStories(stories, triggers)
+for story in stories:
+    print 'pass'
