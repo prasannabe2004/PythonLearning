@@ -91,6 +91,18 @@ class OrTrigger(Trigger):
     def evaluate(self, story):
         return self.t1.evaluate(story) or self.t2.evaluate(story)
 
+class PhraseTrigger(WordTrigger):
+    def __init__(self,phrase):
+        self.phrase = phrase
+
+    def evaluate(self, story):
+        if self.phrase in story.getTitle():
+            return True
+        if self.phrase in story.getSubject():
+            return True
+        if self.phrase in story.getSummary():
+            return True
+
 
 koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
 s1 = TitleTrigger('bear')
@@ -129,3 +141,17 @@ result = OrTrigger(s5,s6)
 
 soda = NewsStory('', "Koala bear's are soft and cuddly", 'I prefer pillows that are soft.', '', '')
 print result.evaluate(soda)
+
+#Phase Trigger
+pt = PhraseTrigger("New York City")
+a = NewsStory('', "asfdNew York Cityasfdasdfasdf", '', '', '')
+b = NewsStory('', '', "asdfasfdNew York Cityasfdasdfasdf", '', '')
+c = NewsStory('', '', '', "asdfasfdNew York Cityasfdasdfasdf", '')
+noa = NewsStory('', "something something new york city", '', '', '')
+nob = NewsStory('', '', "something something new york city", '', '')
+noc = NewsStory('', '', '', "something something new york city", '')
+
+pt.evaluate(a)
+pt.evaluate(b)
+pt.evaluate(c)
+
