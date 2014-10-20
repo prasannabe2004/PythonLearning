@@ -113,6 +113,45 @@ def filterStories(stories, triggerlist):
                 break
     return list
 
+def makeTrigger(triggerMap, triggerType, params, name):
+    if triggerType == 'TITLE':
+        Trigger = TitleTrigger(params[0])
+    elif triggerType == 'SUBJECT':
+        Trigger = SubjectTrigger(params[0])
+    elif triggerType == 'SUMMARY':
+        Trigger = SummaryTrigger(params[0])
+    elif triggerType == 'PHRASE':
+        Trigger = PhraseTrigger(" ".join(params[0]))
+    elif triggerType == 'NOT':
+        Trigger = NotTrigger(triggerMap[params[0]])
+    elif triggerType == 'AND':
+        Trigger = AndTrigger(triggerMap[params[0]], triggerMap[params[1]])
+    elif triggerType == 'OR':
+        Trigger = OrTrigger(triggerMap[params[0]], triggerMap[params[1]])
+    else:
+        raise ValueError
+
+    triggerMap[name] = Trigger
+
+def readTriggerConfig(filename):
+    triggerfile = open(filename, "r")
+    all = [ line.rstrip() for line in triggerfile.readlines() ]
+    lines = []
+    for line in all:
+        if len(line) == 0 or line[0] == '#':
+            continue
+        lines.append(line)
+    triggers = []
+    triggerMap = {}
+
+    for line in lines:
+        linesplit = line.split(" ")
+        if linesplit[0] != "ADD":
+            trigger = makeTrigger(triggerMap, linesplit[1], linesplit[2:], linesplit[0])
+        else:
+            for name in linesplit[1:]:
+                triggers.append(triggerMap[name])
+    return triggers
 
 koala = NewsStory('', "Koala bear's are soft and cuddly", '', '', '')
 s1 = TitleTrigger('bear')
@@ -178,3 +217,5 @@ triggers = [pt, s1, s2]
 filteredStories = filterStories(stories, triggers)
 for story in stories:
     print 'pass'
+
+triggerlist = readTriggerConfig("C:\/Users\/pmohanasundaram\/Documents\/Trashit\/PyCharm\/PythonLearning\/edx\/6.00.1.x\/Week7\/ProblemSet\/code_ProblemSet7\/triggers.txt")
