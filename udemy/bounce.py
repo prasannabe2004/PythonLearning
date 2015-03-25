@@ -22,10 +22,11 @@ class Ball:
         self.y = -3
         self.canvas_height = self.canvas.winfo_height()
         self.canvas_width = self.canvas.winfo_width()
+        self.hit_bottom = False
         
     def hit_paddle(self,pos):
         paddle_pos = self.canvas.coords(self.paddle.id)
-        if pos[2] >= paddle_pos[0] and poos[0] <= paddle_pos[2]:
+        if pos[2] >= paddle_pos[0] and pos[0] <= paddle_pos[2]:
             if pos[3] >= paddle_pos[1] and pos[3] <= paddle_pos[3]:
                 return True
             return False
@@ -37,7 +38,8 @@ class Ball:
         if pos[1] <= 0:
             self.y = 3
         if pos[3] >= self.canvas_height:
-            self.y = -3
+            self.hit_bottom = True
+            canvas.create_text(245,100,text='GAME OVER')
         if pos[0] <= 0:
             self.x = 3
         if pos[2] >= self.canvas_width:
@@ -54,7 +56,7 @@ class Paddle:
         self.canvas_width = self.canvas.winfo_width()
         self.canvas.bind_all('<KeyPress-Left>',self.turn_left)
         self.canvas.bind_all('<KeyPress-Right>',self.turn_right)
-        
+
     def draw(self):
         self.canvas.move(self.id,self.x,0)
         pos = self.canvas.coords(self.id)
@@ -75,7 +77,9 @@ ball = Ball(canvas,paddle, 'red')
 
 
 while 1:
-    ball.draw()
+    if ball.hit_bottom == False:
+        ball.draw()
+        paddle.draw()
     tk.update_idletasks()
     tk.update()
     time.sleep(0.01)
