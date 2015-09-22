@@ -1,3 +1,5 @@
+#!/bin/python2
+
 # paste your code here
 
 # python 2
@@ -16,7 +18,7 @@ def dbl(x):
     """
     return 2*x
     
-print(dbl(21))
+print dbl(21)
 
 
 def tpl(x):
@@ -25,7 +27,7 @@ def tpl(x):
     """
     return 3*x
 
-print(tpl(5))
+print tpl(5)
 
 
 def sq(x):
@@ -33,7 +35,7 @@ def sq(x):
     """
     return x*x
     
-print(sq(5))
+print sq(5)
 
 
 def interp(low,hi,fraction):
@@ -41,8 +43,8 @@ def interp(low,hi,fraction):
    """
    return ((hi-low)*fraction)+low
 
-print(interp(24, 42, 0))
-print(interp(102, 117, -4.0))
+print interp(24, 42, 0)
+print interp(102, 117, -4.0)
 
 
 def checkends(s):
@@ -51,10 +53,10 @@ def checkends(s):
   else:
     return False
 
-print(checkends('no match'))
-print(checkends('hah! a match'))
-print(checkends('q'))
-print(checkends(' '))
+print checkends('no match')
+print checkends('hah! a match')
+print checkends('q')
+print checkends(' ')
 
 
 def flipside( s ):
@@ -63,8 +65,8 @@ def flipside( s ):
     x = int(len(s)/2)
     return s[x:]+s[:x]
     
-print(flipside('homework'))
-print(flipside('carpets'))
+print flipside('homework')
+print flipside('carpets')
 
 
 def convertFromSeconds( s ):
@@ -81,7 +83,7 @@ def convertFromSeconds( s ):
     
     return [days, hours, minutes, seconds]
     
-print(convertFromSeconds(100000))
+print convertFromSeconds(100000)
 
 
 def front3(str):

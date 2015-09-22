@@ -1,7 +1,9 @@
+#!/bin/python2
+
 # paste your code here
 import random
 
-user = input("Choose your weapon: ")
+user = raw_input("Choose your weapon: ")
 comp = random.choice(['rock','paper','scissors'])
 
 print('the user (you) chose', user)
