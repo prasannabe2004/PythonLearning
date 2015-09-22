@@ -1,4 +1,4 @@
-import urllib.request
+import urllib2 as urllib
 import re
 
 #u = input("Enter the stock name: ")
