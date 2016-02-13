@@ -10,7 +10,7 @@ s.listen(5)
 while(True):
     conn,addr = s.accept()
     data = conn.recv(1000)
-    print(data)
+    print('Got request ', data)
     conn.sendall(b"hello client")
 
 
