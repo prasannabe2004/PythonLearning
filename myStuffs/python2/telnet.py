@@ -1,5 +1,9 @@
 #!/usr/bin/python
 
+# If you dont want to share the pytho code
+# use: python -m compileall telnet.py
+# This creates telnet.pyc which is a bytecode file
+
 import sys
 import telnetlib
 import time
@@ -55,13 +59,13 @@ def rebootACPU():
     lastpost = tn.read_all().decode('ascii')
     print(lastpost)
 
+
 if __name__ == "__main__":
     if len(sys.argv) == 2:
         waitTime = int(sys.argv[1])
         print("Wait Time is ", waitTime )
     else:
         print("Defaulting to ", waitTime)
-
     tn = telnetlib.Telnet(HOST)
     tn.set_debuglevel(1)
     loginSession()
