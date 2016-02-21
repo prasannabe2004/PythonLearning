@@ -14,6 +14,17 @@ print(y)
 
 x = 'From   prasannabe2004@gmail.com Sat Jun 5 09:14:16 2016'
 
-y = re.findall('^From   (\S+@\S+)', x)
+y = re.findall('^From   (\S+@?\S+)', x)
 
 print(y)
+
+x = 'From stephen.marquard@uct.ac.za Sat Jan  5 09:14:16 2008'
+
+y = re.findall('[0-9a-z]',x)
+
+print(y)
+
+
+x = 'From: Using the : character'
+y = re.findall('^F.+:', x)
+print y
