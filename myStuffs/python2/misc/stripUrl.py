@@ -5,13 +5,13 @@ Created on Wed Aug 12 15:06:31 2015
 @author: PMohanasundaram
 """
 
-import socket
+import myStuffs.python2.socket
 
 resolved = 0
 
 def resolveIp(domainname):
     try:
-        data = socket.gethostbyname(domainname)
+        data = myStuffs.python2.socket.gethostbyname(domainname)
     except:
         print domainname, " Unresolved"
         return False

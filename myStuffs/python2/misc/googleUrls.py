@@ -4,13 +4,13 @@ Created on Wed Aug 12 08:59:51 2015
 
 @author: PMohanasundaram
 """
-import socket
+import myStuffs.python2.socket
 
 duplicate = 0
 resolved = 0
 
 def resolveIp(domainname):
-    data = socket.gethostbyname(domainname)
+    data = myStuffs.python2.socket.gethostbyname(domainname)
     if repr(data):
         print "resolved IP's for ", domainname, " is ", repr(data)
         global resolved

@@ -2,7 +2,7 @@ import sys
 import threading
 import time
 import subprocess
-import random
+import myStuffs.python2.random
 import copy
 import os
 import signal
@@ -37,7 +37,7 @@ class User(threading.Thread):
 
 		with urllock:
 			my_urls = copy.copy(urls)
-		random.shuffle(my_urls)
+		myStuffs.python2.random.shuffle(my_urls)
 		nulldev = open(os.devnull, 'w')
 		while not terminate:
 			for url in my_urls:

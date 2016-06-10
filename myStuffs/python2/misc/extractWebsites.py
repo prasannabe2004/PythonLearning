@@ -6,13 +6,13 @@ Created on Wed Aug 12 15:53:32 2015
 """
 
 import urllib2 as url
-import socket
+import myStuffs.python2.socket
 
 resolved = 0
 
 def resolveIp(domainname):
     try:
-        data = socket.gethostbyname_ex(domainname)
+        data = myStuffs.python2.socket.gethostbyname_ex(domainname)
     except:
         print domainname, " Unresolved"
         return False

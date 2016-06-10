@@ -1,7 +1,7 @@
 #!/usr/bin/python
 
 import os
-import socket
+import myStuffs.python2.socket
 import threading
 import datetime
 import time
@@ -34,8 +34,8 @@ class RecvThread(threading.Thread):
            print d[1], "--", self.recv_counter,  "--", (current_time - sent_time).microseconds
 
 
-sock = socket.socket(socket.AF_INET, # Internet
-                     socket.SOCK_DGRAM) # UDP
+sock = myStuffs.python2.socket.socket(myStuffs.python2.socket.AF_INET,  # Internet
+                     myStuffs.python2.socket.SOCK_DGRAM) # UDP
 sock.bind((UDP_IP, UDP_PORT))
 
 r = RecvThread(sock)
